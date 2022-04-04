@@ -29,6 +29,11 @@ namespace intex2.Controllers
             return View();
         }
 
+        public IActionResult CalculatorResults()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
