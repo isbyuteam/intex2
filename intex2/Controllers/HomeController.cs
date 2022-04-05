@@ -11,8 +11,14 @@ namespace intex2.Controllers
 {
     public class HomeController : Controller
     {
- 
-    
+
+        private CrashesDbContext _context { get; set; }
+
+        public HomeController(CrashesDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             return View();
