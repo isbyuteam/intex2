@@ -19,8 +19,7 @@ namespace intex2.Controllers
         }
 
         public IActionResult Crashes()
-        {
-                
+        { 
             return View();
         }
 
