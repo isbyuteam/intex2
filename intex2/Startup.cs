@@ -12,6 +12,7 @@ using intex2.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using intex2.Models;
 
 namespace intex2
 {
@@ -30,6 +31,9 @@ namespace intex2
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(
                     Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<CrashModelContext>(options =>
+            //   options.UseMySql(
+            //       Configuration.GetConnectionString("SecondConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>() // Added rules
                 .AddEntityFrameworkStores<ApplicationDbContext>();
