@@ -23,6 +23,11 @@ namespace intex2.Controllers
             return View();
         }
 
+        public IActionResult CrashDetails()
+        {
+            return View();
+        }
+
         public IActionResult Calculator()
         {
             return View();
