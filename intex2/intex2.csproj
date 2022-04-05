@@ -10,6 +10,8 @@
     <None Remove="Microsoft.AspNetCore.Authentication.Google" />
     <None Remove="System.Configuration.ConfigurationManager" />
     <None Remove="Views\Admin\" />
+    <None Remove="Areas\Identity\Pages\Account\" />
+    <None Remove="Areas\Identity\Pages\Account\Manage\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -28,5 +30,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Admin\" />
+    <Folder Include="Areas\Identity\Pages\Account\" />
+    <Folder Include="Areas\Identity\Pages\Account\Manage\" />
   </ItemGroup>
 </Project>

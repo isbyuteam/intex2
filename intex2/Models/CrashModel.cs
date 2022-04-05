@@ -36,6 +36,5 @@ namespace intex2.Models
         public bool DISTRACTED_DRIVING { get; set; }
         public bool DROWSY_DRIVING { get; set; }
         public bool ROADWAY_DEPARTURE { get; set; }
-
     }
 }
