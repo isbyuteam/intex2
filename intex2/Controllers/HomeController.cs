@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using intex2.Models;
+using intex2.Models.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace intex2.Controllers
 {
     public class HomeController : Controller
     {
-
         private CrashesDbContext _context { get; set; }
 
         public HomeController(CrashesDbContext context)
@@ -24,9 +25,24 @@ namespace intex2.Controllers
             return View();
         }
 
-        public IActionResult Crashes()
-        { 
-            return View();
+        public IActionResult Crashes(int pageNum = 1)
+        {
+            var crashes = _context.Crashes.ToList();
+            int pageSize = 450;
+            var pageData = new CrashViewModel
+            {
+                Crashes = _context.Crashes
+                            .OrderBy(crash => crash.CRASH_ID)
+                            .Skip((pageNum - 1) * pageSize)
+                            .Take(pageSize),
+                PageInfo = new PageInformation
+                {
+                    NumOfCrashes = _context.Crashes.Count(),
+                    CrashesPerPage = pageSize,
+                    CurrrentPage = pageNum
+                }
+            };
+            return View(pageData);
         }
 
         public IActionResult CrashDetails()
@@ -47,12 +63,6 @@ namespace intex2.Controllers
         public IActionResult Privacy()
         {
             return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

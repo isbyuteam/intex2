@@ -1,48 +1,36 @@
-﻿@page
-@{
+﻿@{
+    ViewData["Title"] = "Crashes";
 }
 
-@model CrashModel
+@model CrashViewModel
 
 <h1>Crashes</h1>
 
-
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
-
-<div class="card card-outline-primary m-1 p-1">
-    <div class="bg-faded p-1">
-        <h4>
-           
-            <span class="badge badge-pill badge-primary" style="float:right">
-                <small>Severity</small>
-            </span>
-        </h4>
+<div class="card-group">
+    @foreach (var crash in Model.Crashes)
+    {
+        <div class="col-xl-6 col-md-12 mb-4">
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-body cleartfix">
+                        <div class="media align-items-stretch">
+                            <div class="media-body">
+                                <small class="text-muted">@crash.CRASH_ID</small>
+                                <h4 class="pt-1">@crash.CITY</h4>
+                                <span>@crash.CRASH_DATETIME</span>
+                            </div>
+                            <div class="align-self-center">
+                                <h1>@crash.CRASH_SEVERITY_ID</h1>
+                            </div>
+                        </div>
+                        <a role="button" class="stretched-link" asp-action="CrashDetails"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
     </div>
-    <div class="card-text p-1">
-        <ul>
-            <li>Crash ID:</li>
-            <li>Crash Date and Time:</li>
-            <li>Route:</li>
-            <li>Mile Point:</li>
-            <li>Main Road Name:</li>
-        </ul>
 
-        <form method="post" asp-page="">
-
-            @*<input type="hidden" asp-for="@Model.CRASH_ID" />*@
-            @*<input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />*@
-
-            <span class="card-text">
-                <button type="submit" class="btn btn-success btn-sm float-end" asp-action="CrashDetails">See more info</button>
-                
-            </span>
-
-
-        </form>
-    </div>
-</div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end" page-blah="@Model.PageInfo" page-action="Index"></ul>
+    </nav>
