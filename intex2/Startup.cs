@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using intex2.Models;
+using MySql.Data.MySqlClient;
 
 namespace intex2
 {
@@ -28,15 +29,16 @@ namespace intex2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var builder = new MySqlConnectionStringBuilder("App:ConnectionString");
             // Default Connection
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString(builder.ConnectionString)));
 
             // Second Connection
             services.AddDbContext<CrashesDbContext>(options =>
                 options.UseMySql(
-                    Configuration.GetConnectionString("SecondConnection")));
+                    Configuration.GetConnectionString(builder.ConnectionString)));
 
             //services.AddDbContext<CrashModelContext>(options =>
             //   options.UseMySql(
