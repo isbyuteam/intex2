@@ -40,14 +40,66 @@ namespace intex2.Controllers
             return View(pageData);
         }
 
-        public IActionResult Edit()
+        [HttpGet]
+        public IActionResult CreateEditCrash()
         {
             return View();
         }
 
-        public IActionResult Delete()
+        [HttpPost] // Create new crash
+        public IActionResult CreateEditCrash(CrashModel crash)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                crash.CRASH_ID = _context.Crashes.Count() + 1;
+                _context.Add(crash);
+                _context.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(crash);
+        }
+
+        [HttpGet] 
+        public IActionResult Edit(int crashId)
+        {
+            ViewBag.Added = false;
+
+            var crash = _context.Crashes.Single(crash => crash.CRASH_ID == crashId);
+
+            return View("CreateEditCrash", crash);
+        }
+
+        [HttpPost] // Edit existing crash
+        public IActionResult Edit(CrashModel crash)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Update(crash);
+                _context.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(crash);
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int crashId)
+        {
+            var crash = _context.Crashes.Single(x => x.CRASH_ID == crashId);
+
+            return View(crash);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(CrashModel crash)
+        {
+            _context.Crashes.Remove(crash);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }
