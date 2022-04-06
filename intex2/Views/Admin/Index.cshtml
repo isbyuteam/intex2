@@ -2,7 +2,7 @@
     ViewData["Title"] = "Admin";
 }
 
-@model List<CrashModel>
+@model CrashViewModel
 
 <h1>Admin</h1>
 
@@ -21,7 +21,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var crash in Model)
+        @foreach (var crash in Model.Crashes)
         {
             <tr>
                 <th scope="row">@crash.CRASH_ID</th>
@@ -35,3 +35,7 @@
         }
     </tbody>
 </table>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end" page-blah="@Model.PageInfo" page-action="Index"></ul>
+</nav>
