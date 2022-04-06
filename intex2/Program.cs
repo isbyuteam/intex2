@@ -18,6 +18,11 @@ namespace intex2
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((hostcontext, configure) =>
+                {
+                    if (hostcontext.HostingEnvironment.EnvironmentName == "Development")
+                        configure.AddUserSecrets<Program>();
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
