@@ -7,6 +7,6 @@ namespace intex2.Models.ViewModels
         public int NumOfCrashes { get; set; }
         public int CrashesPerPage { get; set; }
         public int CurrrentPage { get; set; }
-        public int TotalPages => (int)Math.Ceiling(((double)NumOfCrashes / CrashesPerPage));
+        public int TotalPages => (int)Math.Ceiling((double)NumOfCrashes / CrashesPerPage);
     }
 }

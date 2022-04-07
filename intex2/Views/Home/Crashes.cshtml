@@ -15,14 +15,16 @@
                     <div class="card-body cleartfix">
                         <div class="media align-items-stretch">
                             <span class="badge bg-danger text-dark" style="float:right">
-                                Crash Severity: @crash.CRASH_SEVERITY_ID/5
+                                Crash Severity: @crash.CRASH_SEVERITY_ID
                             </span>
                             <div class="media-body">
                                 <small class="text-muted">ID: @crash.CRASH_ID</small>
                                 <h4 class="pt-1">@crash.CITY</h4>
                                 <span>@crash.CRASH_DATETIME</span>
                             </div>
-                            <a class="btn btn-sm btn-info" asp-controller="Home" asp-action="CrashDetails" asp-route-crashid="@crash.CRASH_ID">Details</a>
+                            <span class="card-text">
+                                <a class="btn btn-sm btn-info float-end" asp-controller="Home" asp-action="CrashDetails" asp-route-crashid="@crash.CRASH_ID">Details</a>
+                            </span>
                         </div>
                     </div>
                 </div>
