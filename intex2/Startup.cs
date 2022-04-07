@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using intex2.Models;
+using Microsoft.ML.OnnxRuntime;
 
 namespace intex2
 {
@@ -55,6 +56,9 @@ namespace intex2
                 options.ClientId = googleAuthNSection["ClientId"];
                 options.ClientSecret = googleAuthNSection["ClientSecret"];
             });
+            //services.AddSingleton<InferenceSession>(
+            //  new InferenceSession("Models/intex2.onnx")
+            //);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

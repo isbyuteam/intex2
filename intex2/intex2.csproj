@@ -14,6 +14,7 @@
     <None Remove="Areas\Identity\Pages\Account\Manage\" />
     <None Remove="Infrastructure\" />
     <None Remove="Models\ViewModels\" />
+    <None Remove="Microsoft.ML.OnnxRuntime" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -28,6 +29,7 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.22" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.6.0" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.11.0" />
   </ItemGroup>
 
   <ItemGroup>
