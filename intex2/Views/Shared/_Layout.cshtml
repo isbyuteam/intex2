@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UMVCR - @ViewData["Title"]</title>
+    <title>UMVCR @ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -41,11 +41,14 @@
                             }
                         </ul>
                     }
-                    </div>
+                </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div id="types" class="col-2">
+        <vc:crashes></vc:crashes>
+    </div>
+    <div class="container col-10">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -55,7 +58,7 @@
         <div class="container">
             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Click to View our Privacy Policy</a>
         </div>
-     
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

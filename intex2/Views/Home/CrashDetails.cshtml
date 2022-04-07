@@ -1,1 +1,120 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Crash Details";
+}
+
+@model intex2.Models.CrashModel 
+
+
+<div class="card">
+    <div class="card-content">
+        <div class="card-body cleartfix">
+            <div class="media align-items-stretch">
+                <div class="media-body">
+                    <ul>
+                        <li>ID: @Model.CRASH_ID</li>
+                        <li>Date/Time: @Model.CRASH_DATETIME</li>
+                        <li>Route: @Model.ROUTE</li>
+                        <li>Mile Point: @Model.MILEPOINT</li>
+                        <li>Latitude: @Model.LAT_UTM_Y</li>
+                        <li>Longitude: @Model.LONG_UTM_X</li>
+                        <li>Name of Road: @Model.MAIN_ROAD_NAME</li>
+                        <li>City: @Model.CITY</li>
+                        <li>County: @Model.COUNTY_NAME</li>
+                    </ul>
+                </div>
+                <div class="media-body">
+                    <ul>
+                        <li>Work Zone Related: @Model.WORK_ZONE_RELATED</li>
+                        <li>Pedestrian Involved: @Model.PEDESTRIAN_INVOLVED</li>
+                        <li>Cyclist Involved: @Model.BICYCLIST_INVOLVED</li>
+                        <li>Motorcycle Involved: @Model.MOTORCYCLE_INVOLVED</li>
+                        <li>Improper Restraint: @Model.IMPROPER_RESTRAINT</li>
+                        <li>Unrestrained: @Model.UNRESTRAINED</li>
+                        <li>DUI: @Model.DUI</li>
+                        <li>Intersection Related: @Model.INTERSECTION_RELATED</li>
+                        <li>Wild Animal Related: @Model.WILD_ANIMAL_RELATED</li>
+                        <li>Domestic Animal Related: @Model.DOMESTIC_ANIMAL_RELATED</li>
+                        <li>Overturn Rollover: @Model.OVERTURN_ROLLOVER</li>
+                        <li>Commercial Vehicle Involved: @Model.COMMERCIAL_MOTOR_VEH_INVOLVED</li>
+                        <li>Teenage Driver Involved: @Model.TEENAGE_DRIVER_INVOLVED</li>
+                        <li>Older Driver Involved: @Model.OLDER_DRIVER_INVOLVED</li>
+                        <li>Night or Dark Condition: @Model.NIGHT_DARK_CONDITION</li>
+                        <li>Single Vehicle: @Model.SINGLE_VEHICLE</li>
+                        <li>Distracted Driving: @Model.DISTRACTED_DRIVING</li>
+                        <li>Drowsy Driving: @Model.DROWSY_DRIVING</li>
+                        <li>Roadway Departure: @Model.ROADWAY_DEPARTURE</li>
+                    </ul>
+                </div>
+                <div class="align-self-center">
+                    <h1>Crash Severity: @Model.CRASH_SEVERITY_ID</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    @*<td>CRASH_ID</td>
+    <td>CRASH_DATETIME</td>
+    <td>ROUTE</td>
+    <td>MILEPOINT</td>
+    <td>LAT_UTM_Y</td>
+    <td>LONG_UTM_X</td>
+    <td>MAIN_ROAD_NAME</td>
+    <td>CITY</td>
+    <td>COUNTY_NAME</td>
+    <td>CRASH_SEVERITY_ID</td>
+    <td>WORK_ZONE_RELATED</td>
+    <td>PEDESTRIAN_INVOLVED</td>
+    <td>BICYCLIST_INVOLVED</td>
+    <td>MOTORCYCLE_INVOLVED</td>
+    <td>IMPROPER_RESTRAINT</td>
+    <td>UNRESTRAINED</td>
+    <td>DUI</td>
+    <td>INTERSECTION_RELATED</td>
+    <td>WILD_ANIMAL_RELATED</td>
+    <td>DOMESTIC_ANIMAL_RELATED</td>
+    <td>OVERTURN_ROLLOVER</td>
+    <td>COMMERCIAL_MOTOR_VEH_INVOLVED</td>
+    <td>TEENAGE_DRIVER_INVOLVED</td>
+    <td>OLDER_DRIVER_INVOLVED</td>
+    <td>NIGHT_DARK_CONDITION</td>
+    <td>SINGLE_VEHICLE</td>
+    <td>DISTRACTED_DRIVING</td>
+    <td>DROWSY_DRIVING</td>
+    <td>ROADWAY_DEPARTURE</td>
+
+
+    <td>@Model.CRASH_ID</td>
+    <td>@Model.CRASH_DATETIME</td>
+    <td>@Model.ROUTE</td>
+    <td>@Model.MILEPOINT</td>
+    <td>@Model.LAT_UTM_Y</td>
+    <td>@Model.LONG_UTM_X</td>
+    <td>@Model.MAIN_ROAD_NAME</td>
+    <td>@Model.CITY</td>
+    <td>@Model.COUNTY_NAME</td>
+    <td>@Model.CRASH_SEVERITY_ID</td>
+    <td>@Model.WORK_ZONE_RELATED</td>
+    <td>@Model.PEDESTRIAN_INVOLVED</td>
+    <td>@Model.BICYCLIST_INVOLVED</td>
+    <td>@Model.MOTORCYCLE_INVOLVED</td>
+    <td>@Model.IMPROPER_RESTRAINT</td>
+    <td>@Model.UNRESTRAINED</td>
+    <td>@Model.DUI</td>
+    <td>@Model.INTERSECTION_RELATED</td>
+    <td>@Model.WILD_ANIMAL_RELATED</td>
+    <td>@Model.DOMESTIC_ANIMAL_RELATED</td>
+    <td>@Model.OVERTURN_ROLLOVER</td>
+    <td>@Model.COMMERCIAL_MOTOR_VEH_INVOLVED</td>
+    <td>@Model.TEENAGE_DRIVER_INVOLVED</td>
+    <td>@Model.OLDER_DRIVER_INVOLVED</td>
+    <td>@Model.NIGHT_DARK_CONDITION</td>
+    <td>@Model.SINGLE_VEHICLE</td>
+    <td>@Model.DISTRACTED_DRIVING</td>
+    <td>@Model.DROWSY_DRIVING</td>
+    <td>@Model.ROADWAY_DEPARTURE</td>*@
+
+
+
+<a class="btn btn-primary" asp-controller="Home" asp-action="Crashes">Back</a>

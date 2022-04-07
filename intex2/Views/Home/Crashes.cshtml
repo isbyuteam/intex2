@@ -14,22 +14,22 @@
                 <div class="card-content">
                     <div class="card-body cleartfix">
                         <div class="media align-items-stretch">
+                            <span class="badge bg-danger text-dark" style="float:right">
+                                Crash Severity: @crash.CRASH_SEVERITY_ID/5
+                            </span>
                             <div class="media-body">
-                                <small class="text-muted">@crash.CRASH_ID</small>
+                                <small class="text-muted">ID: @crash.CRASH_ID</small>
                                 <h4 class="pt-1">@crash.CITY</h4>
                                 <span>@crash.CRASH_DATETIME</span>
                             </div>
-                            <div class="align-self-center">
-                                <h1>@crash.CRASH_SEVERITY_ID</h1>
-                            </div>
+                            <a class="btn btn-sm btn-info" asp-controller="Home" asp-action="CrashDetails" asp-route-crashid="@crash.CRASH_ID">Details</a>
                         </div>
-                        <a role="button" class="stretched-link" asp-action="CrashDetails"></a>
                     </div>
                 </div>
             </div>
         </div>
     }
-    </div>
+</div>
 
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-end" page-blah="@Model.PageInfo" page-action="Index"></ul>
