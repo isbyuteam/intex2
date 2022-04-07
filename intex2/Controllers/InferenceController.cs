@@ -32,7 +32,11 @@ namespace aspnetcore.Controllers
             Tensor<float> score = result.First().AsTensor<float>();
             var prediction = new Prediction { PredictedValue = score.First() };
             result.Dispose();
-            return View("Score", prediction);
+
+            ViewBag.Prediction = prediction.PredictedValue;
+
+            return View();
+            //return View("Score", prediction);
         }
     }
 }
